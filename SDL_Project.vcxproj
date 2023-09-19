@@ -205,15 +205,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.hpp" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="src\Game.hpp" />
+    <ClInclude Include="src\GameObject.h" />
+    <ClInclude Include="src\TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\enemy.png" />
