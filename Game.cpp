@@ -1,9 +1,13 @@
 #include "Game.hpp"
 #include "TextureManager.h"
 #include "GameObject.h"
+#include "Map.h"
 
-GameObject* player;                                                             // Declare a pointer to a player GameObject
-GameObject* enemy;                                                              // Declare a pointer to an enemy GameObject
+GameObject* player;                                                            
+GameObject* enemy;                                                              
+Map* map;
+
+SDL_Renderer* Game::renderer = nullptr;
 
 Game::Game()                                                                    // Constructor for the Game class
 {}
@@ -15,17 +19,13 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 {
     int flags = 0;
     if (fullscreen)
+    {
         flags = SDL_WINDOW_FULLSCREEN;                                          // Set the fullscreen flag if requested
+    }
 
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0)                                     // Initialize SDL
     {
-        std::cout << "Subsystems Initialized!..." << std::endl;
-
         window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);     // Create an SDL window
-        if (window)
-        {
-            std::cout << "Window Created!" << std::endl;
-        }
         renderer = SDL_CreateRenderer(window, -1, 0);                   // Create an SDL renderer
         if (renderer)
         {
@@ -39,8 +39,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     }
 
     // Create player and enemy GameObjects 
-    player = new GameObject("assets/player.png", renderer, 0, 0);
-    enemy = new GameObject("assets/enemy.png", renderer, 50, 50);
+    player = new GameObject("assets/player.png", 0, 0);
+    enemy = new GameObject("assets/enemy_swrd.png", 50, 50);
+    map = new Map();
 }
 
 void Game::handleEvents()
@@ -59,15 +60,15 @@ void Game::update()
 {
     player->Update();                  // Update the player GameObject
     enemy->Update();                   // Update the enemy GameObject
+    //map->LoadMap();   //Load map with file
 }
 
 void Game::render()
 {
     SDL_RenderClear(renderer);         // Clear the renderer
-
+    map->DrawMap();
     player->Render();                  // Render the player GameObject
     enemy->Render();                   // Render the enemy GameObject
-
     SDL_RenderPresent(renderer);       // Present the rendered objects on the screen
 }
 
