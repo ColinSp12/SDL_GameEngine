@@ -205,19 +205,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Image Include="assets\dirt.png" />
+    <Image Include="assets\enemy.png" />
+    <Image Include="assets\enemy_swrd.png" />
+    <Image Include="assets\grass.png" />
+    <Image Include="assets\player.png" />
+    <Image Include="assets\water.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="TextureManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="assets\enemy.png" />
-    <Image Include="assets\player.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,10 +20,11 @@ public:
 	bool running() { return isRunning; }
 
 
+	static SDL_Renderer* renderer;
+
 private:
 	bool isRunning;				// track if game is running or not
 	SDL_Window* window;
-	SDL_Renderer* renderer;
 	int cnt = 0;				
 };
 
